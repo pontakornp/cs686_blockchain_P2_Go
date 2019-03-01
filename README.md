@@ -1,1 +1,1 @@
-# cs686_blockchain_P1_Go_skeleton
+# cs686_blockchain_P2_Go

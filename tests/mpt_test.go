@@ -1,14 +1,14 @@
 package tests
 
 import (
-	"cs686_blockchain_P2_Go/project"
+	"cs686_blockchain_P2_Go/p1"
 	"fmt"
 	"io/ioutil"
 	"testing"
 )
 
 func TestExt(t *testing.T) {
-	mpt := new(project.MerklePatriciaTrie)
+	mpt := new(p1.MerklePatriciaTrie)
 	mpt.Initial()
 	mpt.Insert("p", "apple")
 	mpt.Insert("aa", "banana")
@@ -136,7 +136,7 @@ func TestExt(t *testing.T) {
 	mpt.Initial()
 	mpt.Insert("aaa", "apple")
 	mpt.Insert("aap", "banana")
-	//inserted_trie := project.Order_nodes()
+	//inserted_trie := p1.Order_nodes()
 	mpt.Insert("bc", "new")
 	check_mpt("TestExt 133", mpt.Order_nodes(),"./mpt_tests/ext_133.txt", t)
 	mpt.Delete("c")
@@ -144,7 +144,7 @@ func TestExt(t *testing.T) {
 }
 
 func TestLeaf(t *testing.T) {
-	mpt := new(project.MerklePatriciaTrie)
+	mpt := new(p1.MerklePatriciaTrie)
 	mpt.Initial()
 	mpt.Insert("a", "apple")
 	mpt.Insert("b", "banana")
@@ -284,7 +284,7 @@ func TestLeaf(t *testing.T) {
 }
 
 func TestDeleteBasic(t *testing.T) {
-	mpt := new(project.MerklePatriciaTrie)
+	mpt := new(p1.MerklePatriciaTrie)
 	mpt.Initial()
 	mpt.Insert("a", "apple")
 	mpt.Insert("b", "banana")
@@ -305,7 +305,7 @@ func TestDeleteBasic(t *testing.T) {
 }
 
 func TestBranch(t *testing.T) {
-	mpt := new(project.MerklePatriciaTrie)
+	mpt := new(p1.MerklePatriciaTrie)
 	mpt.Initial()
 	mpt.Insert("aa", "apple")
 	mpt.Insert("ap", "banana")
@@ -326,7 +326,7 @@ func TestBranch(t *testing.T) {
 	mpt.Delete("c")
 	check_mpt("TestBranch v_np", mpt.Order_nodes(),"./mpt_tests/branch_v_np.txt", t)
 	mpt.Delete("a")
-	expected_mpt := new(project.MerklePatriciaTrie)
+	expected_mpt := new(p1.MerklePatriciaTrie)
 	expected_mpt.Initial()
 	expected_mpt.Insert("aa", "apple")
 	expected_mpt.Insert("ap", "banana")
@@ -357,7 +357,7 @@ func TestBranch(t *testing.T) {
 }
 
 func TestLeafBasic(t *testing.T) {
-	mpt := new(project.MerklePatriciaTrie)
+	mpt := new(p1.MerklePatriciaTrie)
 	mpt.Initial()
 	mpt.Insert("a", "apple")
 	mpt.Insert("b", "banana")
@@ -374,7 +374,7 @@ func TestLeafBasic(t *testing.T) {
 }
 
 func TestExtBasic(t *testing.T) {
-	mpt := new(project.MerklePatriciaTrie)
+	mpt := new(p1.MerklePatriciaTrie)
 	mpt.Initial()
 	mpt.Insert("a", "apple")
 	mpt.Insert("b", "banana")
@@ -428,5 +428,5 @@ func check_eq(id string, real string, expected string, t *testing.T) {
 }
 
 func TestCompactEncode(t *testing.T) {
-	//project.TestCompact()
+	//p1.TestCompact()
 }

@@ -1,7 +1,7 @@
-package project
+package p1
 
 import (
-	"cs686_blockchain_P2_Go/stack"
+	"../stack"
 	"errors"
 )
 
@@ -34,7 +34,7 @@ func (mpt *MerklePatriciaTrie) Delete(key string) (string, error) {
 					node.branch_value[branch_value_index] = new_hash_node
 				}
 				//node.branch_value[branch_value_index] = new_hash_node
-				//delete(project.db, hash_node)
+				//delete(p1.db, hash_node)
 				hash_node = node.hash_node()
 				mpt.db[hash_node] = node
 				new_hash_node = hash_node
@@ -56,7 +56,7 @@ func (mpt *MerklePatriciaTrie) Delete(key string) (string, error) {
 			}
 			branch_last_value := node.branch_value[16]
 			// delete branch node
-			//delete(project.db, hash_node)
+			//delete(p1.db, hash_node)
 			// if there are more than one value under branch node, no need to merge the child
 			if (branch_last_value == "" && count >= 2) || (branch_last_value != "" && count >= 1) {
 				// hash branch node
@@ -94,7 +94,7 @@ func (mpt *MerklePatriciaTrie) Delete(key string) (string, error) {
 						// combine prefix
 						prefix = append(prefix, child_node_prefix...)
 						//// delete child node
-						//delete(project.db, hash_child_node)
+						//delete(p1.db, hash_child_node)
 					}
 					// if parent is branch, then merge
 					temp_str := mpt.mergeHelper(node_stack, to_create_leaf, prefix, temp_value)
@@ -105,7 +105,7 @@ func (mpt *MerklePatriciaTrie) Delete(key string) (string, error) {
 				} else { // case when there is one value at index 16 left in branch node
 					to_create_leaf = true
 					temp_value = node.branch_value[16]
-					//new_hash_node = project.mergeNodes(to_create_leaf, prefix, temp_value)
+					//new_hash_node = p1.mergeNodes(to_create_leaf, prefix, temp_value)
 					//is_merging = false
 					temp_str := mpt.mergeHelper(node_stack, to_create_leaf, prefix, temp_value)
 					if temp_str != "" {
@@ -118,11 +118,11 @@ func (mpt *MerklePatriciaTrie) Delete(key string) (string, error) {
 			encoded_prefix := node.flag_value.encoded_prefix
 			if isLeafNode(encoded_prefix) {
 				//// delete the node
-				//delete(project.db, hash_node)
+				//delete(p1.db, hash_node)
 				// update is merging
 				is_merging = true
 			} else {
-				//delete(project.db, hash_node)
+				//delete(p1.db, hash_node)
 				if !is_merging {
 					node.flag_value.value = new_hash_node
 					hash_node = node.hash_node()

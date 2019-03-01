@@ -1,7 +1,7 @@
-package project
+package p1
 
 import (
-	"cs686_blockchain_P2_Go/stack"
+	"../stack"
 )
 
 func (mpt *MerklePatriciaTrie) updateParents(node_stack *stack.Stack, hash_child string) {
@@ -16,7 +16,7 @@ func (mpt *MerklePatriciaTrie) updateParents(node_stack *stack.Stack, hash_child
 		parent_node := mpt.db[old_hash_parent_node]
 		//fmt.Println("Updating parent.............", parent_node)
 		// if the parent is a branch node
-		//fmt.Println("Len of map",len(project.db))
+		//fmt.Println("Len of map",len(p1.db))
 		if parent_node.node_type == 1 {
 			branch_value_index := parent.index
 			parent_node.branch_value[branch_value_index] = hash_child
@@ -26,7 +26,7 @@ func (mpt *MerklePatriciaTrie) updateParents(node_stack *stack.Stack, hash_child
 		hash_parent_node := parent_node.hash_node()
 		// delete old parent node
 		delete(mpt.db, old_hash_parent_node)
-		// update project db
+		// update p1 db
 		mpt.db[hash_parent_node] = parent_node
 		// update child
 		hash_child = hash_parent_node

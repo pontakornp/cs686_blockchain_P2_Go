@@ -1,4 +1,4 @@
-package project
+package p1
 
 import (
 	"cs686_blockchain_P2_Go/stack"

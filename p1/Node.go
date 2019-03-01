@@ -1,4 +1,4 @@
-package project
+package p1
 
 import "reflect"
 

@@ -1,4 +1,4 @@
-package project
+package p1
 
 // check if encoded array is a leaf
 func isLeafNode(encoded_arr []uint8) bool {

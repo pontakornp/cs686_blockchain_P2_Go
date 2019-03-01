@@ -1,7 +1,7 @@
-package project
+package p1
 
 import (
-	"cs686_blockchain_P2_Go/stack"
+	"../stack"
 )
 
 func (mpt *MerklePatriciaTrie) Insert(key string, new_value string) {
@@ -160,7 +160,7 @@ func (mpt *MerklePatriciaTrie) LeafCompleteMatch(node_stack *stack.Stack, hash_n
 	hash_leaf_node := node.hash_node()
 	//delete the old leaf node
 	delete(mpt.db, hash_node)
-	//update project db
+	//update p1 db
 	mpt.db[hash_leaf_node] = node
 	//update parents
 	mpt.updateParents(node_stack, hash_leaf_node)
@@ -198,7 +198,7 @@ func (mpt *MerklePatriciaTrie) LeafNoMatch(node_stack *stack.Stack, path_arr []u
 			branch_node_val = new_value
 			// delete the unwanted node
 			delete(mpt.db, hash_node)
-			// update project db leaf
+			// update p1 db leaf
 			mpt.db[hash_leaf_nibble_node] = leaf_nibble_node
 		} else if len(nibble_arr) == 0 {
 			leaf_path_node, branch_path_index := mpt.TraverseLeafHelper(path_arr, new_value)
@@ -207,7 +207,7 @@ func (mpt *MerklePatriciaTrie) LeafNoMatch(node_stack *stack.Stack, path_arr []u
 			branch_node_val = nibble_value
 			// delete the unwanted node
 			delete(mpt.db, hash_node)
-			// update project db leaf
+			// update p1 db leaf
 			mpt.db[hash_leaf_path_node] = leaf_path_node
 		} else {
 			return
@@ -384,7 +384,7 @@ func (mpt *MerklePatriciaTrie) ExtPartialMatchWithExtraNibbleAndPath(node_stack 
 	hash_ext_node := ext_node.hash_node()
 	// delete old extension node
 	delete(mpt.db, hash_node)
-	// update project db
+	// update p1 db
 	mpt.db[hash_leaf_path_node] = leaf_path_node
 	if(hash_ext_nibble_node != "") {
 		mpt.db[hash_ext_nibble_node] = ext_nibble_node
@@ -425,7 +425,7 @@ func (mpt *MerklePatriciaTrie) ExtPartialMatchWithExtraNibble(node_stack *stack.
 	hash_ext_node := ext_node.hash_node()
 	// delete old node
 	delete(mpt.db, hash_node)
-	// update project db
+	// update p1 db
 	if hash_ext_nibble_node != "" {
 		mpt.db[hash_ext_nibble_node] = ext_nibble_node
 	}
