@@ -1,7 +1,7 @@
 package p1
 
 import (
-	"../stack"
+	"cs686_blockchain_P2_Go/stack"
 )
 
 func (mpt *MerklePatriciaTrie) Insert(key string, new_value string) {

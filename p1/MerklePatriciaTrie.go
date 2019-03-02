@@ -24,6 +24,14 @@ type MerklePatriciaTrie struct {
 	root string
 }
 
+func (mpt *MerklePatriciaTrie) GetDb() map[string]Node {
+	return mpt.db
+}
+
+func (mpt *MerklePatriciaTrie) GetRoot() string {
+	return mpt.root
+}
+
 // encode hex_array to ascii
 func compact_encode(hex_array []uint8) []uint8 {
 	term := 0

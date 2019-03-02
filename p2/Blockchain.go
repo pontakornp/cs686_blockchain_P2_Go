@@ -6,18 +6,18 @@ type Blockchain struct {
 }
 
 // get list of blocks from the height
-func (*Blockchain) Get(height int32) ([]Block, error) {
+func (bc *Blockchain) Get(height int32) ([]Block, error) {
 	return []Block{}, nil
 }
 
-func (*Blockchain) Insert(block Block) {
+func (bc *Blockchain) Insert(block Block) {
 }
 
-func (*Blockchain) EncodeToJSON() (string, error) {
+func (bc *Blockchain) EncodeToJSON() (string, error) {
 	return "", nil
 }
 
-func (*Blockchain) DecodeFromJSON(json string) (Block, error) {
+func (bc *Blockchain) DecodeFromJSON(json string) (Block, error) {
 	return Block{}, nil
 }
 

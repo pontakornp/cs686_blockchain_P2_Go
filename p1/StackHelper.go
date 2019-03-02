@@ -1,7 +1,7 @@
 package p1
 
 import (
-	"../stack"
+	"cs686_blockchain_P2_Go/stack"
 )
 
 func (mpt *MerklePatriciaTrie) updateParents(node_stack *stack.Stack, hash_child string) {
