@@ -16,6 +16,12 @@ func (mpt *MerklePatriciaTrie) Delete(key string) (string, error) {
 	new_hash_node := ""
 	temp_value := ""
 
+	//remove key value pair from the map
+	if _, ok := mpt.pairMap[key]; ok {
+		delete(mpt.pairMap, key)
+	}
+	delete(mpt.pairMap, key)
+
 	for !node_stack.IsEmpty() {
 		ref := node_stack.Pop().(ParentNodeRef)
 		hash_node := ref.hash_node

@@ -12,6 +12,8 @@ func (mpt *MerklePatriciaTrie) Insert(key string, new_value string) {
 	if key == "" {
 		return
 	}
+	// add key value pair to pair map
+	mpt.pairMap[key] = new_value
 	path_arr := ConvertStringToHexArray(key)
 	// if root is empty, create a leaf and insert
 	// if root is not empty, perform an operation according to each node type
@@ -94,6 +96,7 @@ func (mpt *MerklePatriciaTrie) Insert(key string, new_value string) {
 					path_arr = path_arr[match_len:]
 					//traverse down
 					hash_node = node.flag_value.value
+
 				}
 			}
 		}

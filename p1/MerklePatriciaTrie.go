@@ -22,6 +22,7 @@ type Node struct {
 type MerklePatriciaTrie struct {
 	db map[string]Node
 	root string
+	pairMap map[string]string
 }
 
 func (mpt *MerklePatriciaTrie) GetDb() map[string]Node {
@@ -30,6 +31,10 @@ func (mpt *MerklePatriciaTrie) GetDb() map[string]Node {
 
 func (mpt *MerklePatriciaTrie) GetRoot() string {
 	return mpt.root
+}
+
+func (mpt *MerklePatriciaTrie) GetPairMap() map[string]string {
+	return mpt.pairMap
 }
 
 // encode hex_array to ascii
@@ -128,6 +133,7 @@ func node_to_string(node Node) string {
 func (mpt *MerklePatriciaTrie) Initial() {
 	mpt.db = make(map[string]Node)
 	mpt.root = ""
+	mpt.pairMap = make(map[string]string)
 }
 
 func is_ext_node(encoded_arr []uint8) bool {
