@@ -5,13 +5,13 @@ This project is continued development using Go on top of the MPT implementation 
 The main classes include Block and Blockchain.
 
 Block class consist of the following functions:
-- Block Initialization
+- Initialize block
 - Encode block to JSON
 - Decode JSON to block
-- Hash Block
+- Hash block
 
 Blockchain class consist of the following functions:
-- Blockchain Initialization
+- Initialize blockchain
 - Insert - insert block into blockchain
 - Get - get list of blocks from the height
 - Contains Block - check if block list contains a given block
